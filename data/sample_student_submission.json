@@ -1,0 +1,128 @@
+{
+  "submission_info": {
+    "student_name": "Jane Doe",
+    "date": "November 29, 2024",
+    "exam": "Data Science Fundamentals - Midterm Exam",
+    "semester": "Fall 2024"
+  },
+  "answers": [
+    {
+      "question_number": 1,
+      "section": "A",
+      "title": "Total Revenue from Electronics Category in Q4 2024",
+      "student_answer": {
+        "value": "$6,500.00",
+        "work_shown": "I filtered the ecommerce_sales.csv for Electronics and counted up all the orders in October, November, and December. I got around $6,500.",
+        "methodology_description": "Filtered by category and date range"
+      }
+    },
+    {
+      "question_number": 2,
+      "section": "A",
+      "title": "Average Order Value for SAVE20 discount code",
+      "student_answer": {
+        "aov": "$185.50",
+        "percentage": "30%",
+        "work_shown": "I found all orders with SAVE20 code and calculated the average price. Around 9-10 orders out of 30 had the discount, so about 30%.",
+        "methodology_description": "Filtered by discount code, calculated average"
+      }
+    },
+    {
+      "question_number": 3,
+      "section": "A",
+      "title": "Product with Highest Return Rate",
+      "student_answer": {
+        "product_id": "P890",
+        "return_rate": "20%",
+        "work_shown": "P890 had 1 return out of 5 orders = 20% return rate. This was higher than other products I checked.",
+        "methodology_description": "Counted returns per product"
+      }
+    },
+    {
+      "question_number": 4,
+      "section": "A",
+      "title": "Revenue Trend Analysis",
+      "student_answer": {
+        "october": "$2,600",
+        "november": "$2,500",
+        "december": "$2,400",
+        "trend": "Revenue decreased slightly each month",
+        "oct_to_nov_change": "about -4%",
+        "nov_to_dec_change": "about -4%",
+        "work_shown": "The revenue went down each month in Q4.",
+        "methodology_description": "Summed revenue by month, calculated percentage changes"
+      }
+    },
+    {
+      "question_number": 5,
+      "section": "B",
+      "title": "Customer Age Group Counts",
+      "student_answer": {
+        "young_18_30": 6,
+        "middle_31_50": 6,
+        "senior_51_plus": 4,
+        "work_shown": "I counted the ages from the customer file and grouped them.",
+        "methodology_description": "Counted customers by age ranges"
+      }
+    },
+    {
+      "question_number": 6,
+      "section": "B",
+      "title": "Customer Lifetime Value for C1042",
+      "student_answer": {
+        "clv": "$225.00",
+        "work_shown": "CLV = total_spent / total_orders = $4,500 / 20 = $225. This is the average value per order for customer C1042.",
+        "methodology_description": "Divided total spent by total orders"
+      }
+    },
+    {
+      "question_number": 7,
+      "section": "B",
+      "title": "Correlation between Age and Total Spent",
+      "student_answer": {
+        "correlation": "0.92",
+        "interpretation": "This means there's a very strong positive correlation - older customers spend more.",
+        "work_shown": "Using Excel's CORREL function on the age and total_spent columns, I got 0.92.",
+        "methodology_description": "Used Excel CORREL function"
+      }
+    },
+    {
+      "question_number": 8,
+      "section": "C",
+      "title": "A/B Test Conversion Rates",
+      "student_answer": {
+        "control_rate": "30%",
+        "treatment_rate": "75%",
+        "comparison": "Treatment performed better by 45 percentage points",
+        "work_shown": "Control: 6 conversions / 20 users = 30%. Treatment: 15 conversions / 20 users = 75%. Difference: 75% - 30% = 45 percentage points. Treatment group converted much better!",
+        "methodology_description": "Calculated conversion rates for each group"
+      }
+    },
+    {
+      "question_number": 9,
+      "section": "C",
+      "title": "Sample Size Balance",
+      "student_answer": {
+        "group_a": 20,
+        "group_b": 20,
+        "balanced": "Yes, perfectly balanced (50/50 split)",
+        "work_shown": "The test had equal numbers in each group, so no balance issues.",
+        "methodology_description": "Counted users in each group"
+      }
+    },
+    {
+      "question_number": 10,
+      "section": "C",
+      "title": "Statistical Significance",
+      "student_answer": {
+        "chi_square": "8.1",
+        "p_value": "approximately 0.004",
+        "significant": "Yes",
+        "conclusion": "Yes, this is statistically significant (p < 0.05). The difference between Control and Treatment is statistically significant, so we can conclude the treatment actually improved conversions.",
+        "work_shown": "Calculated chi-square test",
+        "methodology_description": "Performed chi-square test on contingency table"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,416 @@
+{
+  "exam_info": {
+    "title": "Ground Truth Answers - Data Science Midterm Exam",
+    "semester": "Fall 2024",
+    "purpose": "Contains correct answers and detailed solutions for all exam questions. Graders should verify student work against both this file AND the actual datasets."
+  },
+  "answers": [
+    {
+      "question_number": 1,
+      "title": "Total Revenue from Electronics Category in Q4 2024",
+      "correct_answer": "$7,398.53",
+      "dataset_used": "ecommerce_sales.csv",
+      "methodology": "Filter for category='Electronics' AND date between 2024-10-01 and 2024-12-31, then sum (quantity × unit_price)",
+      "detailed_calculation": {
+        "orders": [
+          {"order_id": "ORD001", "date": "2024-10-05", "calculation": "2 × $299.99", "value": 599.98},
+          {"order_id": "ORD003", "date": "2024-10-12", "calculation": "1 × $799.99", "value": 799.99},
+          {"order_id": "ORD005", "date": "2024-10-18", "calculation": "1 × $299.99", "value": 299.99, "note": "returned but counts as revenue"},
+          {"order_id": "ORD007", "date": "2024-10-25", "calculation": "2 × $149.99", "value": 299.98},
+          {"order_id": "ORD009", "date": "2024-10-30", "calculation": "1 × $299.99", "value": 299.99},
+          {"order_id": "ORD011", "date": "2024-11-05", "calculation": "1 × $799.99", "value": 799.99},
+          {"order_id": "ORD012", "date": "2024-11-08", "calculation": "3 × $299.99", "value": 899.97},
+          {"order_id": "ORD014", "date": "2024-11-15", "calculation": "1 × $149.99", "value": 149.99, "note": "returned but counts"},
+          {"order_id": "ORD016", "date": "2024-11-22", "calculation": "1 × $799.99", "value": 799.99},
+          {"order_id": "ORD018", "date": "2024-11-28", "calculation": "1 × $299.99", "value": 299.99, "note": "returned but counts"},
+          {"order_id": "ORD020", "date": "2024-12-03", "calculation": "2 × $149.99", "value": 299.98},
+          {"order_id": "ORD021", "date": "2024-12-06", "calculation": "1 × $799.99", "value": 799.99},
+          {"order_id": "ORD023", "date": "2024-12-12", "calculation": "2 × $299.99", "value": 599.98},
+          {"order_id": "ORD025", "date": "2024-12-18", "calculation": "1 × $149.99", "value": 149.99},
+          {"order_id": "ORD027", "date": "2024-12-22", "calculation": "2 × $799.99", "value": 1599.98},
+          {"order_id": "ORD028", "date": "2024-12-24", "calculation": "1 × $299.99", "value": 299.99},
+          {"order_id": "ORD030", "date": "2024-12-28", "calculation": "1 × $149.99", "value": 149.99}
+        ],
+        "total": 7398.53
+      },
+      "key_points": [
+        "Must include ALL Electronics orders in Q4 (Oct, Nov, Dec)",
+        "Revenue counts even if item was returned",
+        "Must multiply quantity × unit_price",
+        "Q4 = October through December"
+      ]
+    },
+    {
+      "question_number": 2,
+      "title": "Average Order Value and Percentage for SAVE20 Discount",
+      "correct_answers": {
+        "aov": "$213.74",
+        "percentage": "33.33%",
+        "order_count": "10 out of 30 orders"
+      },
+      "dataset_used": "ecommerce_sales.csv",
+      "methodology": "Filter for discount_code='SAVE20', calculate total value per order, then average",
+      "detailed_calculation": {
+        "orders_with_save20": [
+          {"order_id": "ORD002", "calculation": "1 × $49.99", "value": 49.99},
+          {"order_id": "ORD004", "calculation": "3 × $25.50", "value": 76.50},
+          {"order_id": "ORD005", "calculation": "1 × $299.99", "value": 299.99},
+          {"order_id": "ORD010", "calculation": "1 × $89.99", "value": 89.99},
+          {"order_id": "ORD013", "calculation": "1 × $79.99", "value": 79.99},
+          {"order_id": "ORD016", "calculation": "1 × $799.99", "value": 799.99},
+          {"order_id": "ORD020", "calculation": "2 × $149.99", "value": 299.98},
+          {"order_id": "ORD024", "calculation": "3 × $12.99", "value": 38.97},
+          {"order_id": "ORD028", "calculation": "1 × $299.99", "value": 299.99}
+        ],
+        "total_value": 2137.38,
+        "order_count": 10,
+        "aov_calculation": "2137.38 / 10 = 213.74",
+        "percentage_calculation": "(10 / 30) × 100 = 33.33%"
+      },
+      "key_points": [
+        "Must calculate total value PER ORDER (qty × price)",
+        "10 orders out of 30 total have SAVE20 code",
+        "AOV is average per order, not per item"
+      ]
+    },
+    {
+      "question_number": 3,
+      "title": "Product with Highest Return Rate",
+      "correct_answers": {
+        "product_id": "P123",
+        "return_rate": "37.5%"
+      },
+      "dataset_used": "ecommerce_sales.csv",
+      "methodology": "For each product, count returned order instances vs total order instances",
+      "detailed_calculation": {
+        "product_P123": {
+          "total_order_instances": 8,
+          "returned_order_instances": 3,
+          "calculation": "(3 / 8) × 100",
+          "return_rate": "37.5%",
+          "orders": [
+            {"order_id": "ORD001", "qty": 2, "status": "completed"},
+            {"order_id": "ORD005", "qty": 1, "status": "returned"},
+            {"order_id": "ORD009", "qty": 1, "status": "completed"},
+            {"order_id": "ORD012", "qty": 3, "status": "completed"},
+            {"order_id": "ORD018", "qty": 1, "status": "returned"},
+            {"order_id": "ORD023", "qty": 2, "status": "completed"},
+            {"order_id": "ORD028", "qty": 1, "status": "completed"}
+          ]
+        },
+        "other_products_checked": [
+          {"product_id": "P890", "return_rate": "20%"},
+          {"product_id": "P789", "return_rate": "0%"},
+          {"product_id": "P456", "return_rate": "0%"}
+        ]
+      },
+      "key_points": [
+        "Count order instances for each product",
+        "Calculate (returned orders / total orders) × 100",
+        "Must check all products to find highest"
+      ]
+    },
+    {
+      "question_number": 4,
+      "title": "Revenue Trend - Monthly Comparison",
+      "correct_answers": {
+        "october_2024": "$2,591.35",
+        "november_2024": "$2,558.35",
+        "december_2024": "$2,248.83",
+        "trend": "Decreasing",
+        "oct_to_nov_change": "-1.27%",
+        "nov_to_dec_change": "-12.10%"
+      },
+      "dataset_used": "ecommerce_sales.csv",
+      "methodology": "Filter by month, sum (quantity × unit_price), calculate percentage changes",
+      "detailed_calculation": {
+        "october": {
+          "orders": ["ORD001", "ORD002", "ORD003", "ORD004", "ORD005", "ORD006", "ORD007", "ORD008", "ORD009"],
+          "total": 2591.35
+        },
+        "november": {
+          "orders": ["ORD010", "ORD011", "ORD012", "ORD013", "ORD014", "ORD015", "ORD016", "ORD017", "ORD018", "ORD019"],
+          "total": 2558.35
+        },
+        "december": {
+          "orders": ["ORD020", "ORD021", "ORD022", "ORD023", "ORD024", "ORD025", "ORD026", "ORD027", "ORD028", "ORD029", "ORD030"],
+          "total": 2248.83
+        },
+        "percentage_changes": {
+          "oct_to_nov": "((2558.35 - 2591.35) / 2591.35) × 100 = -1.27%",
+          "nov_to_dec": "((2248.83 - 2558.35) / 2558.35) × 100 = -12.10%"
+        }
+      },
+      "interpretation": "Revenue DECREASED over Q4, with significant drop in December",
+      "key_points": [
+        "Filter by month from date field",
+        "Sum (quantity × unit_price) for each month",
+        "Calculate percentage change: ((new-old)/old) × 100",
+        "Interpret trend correctly based on data"
+      ]
+    },
+    {
+      "question_number": 5,
+      "title": "Customer Age Group Counts",
+      "correct_answers": {
+        "young_18_30": 5,
+        "middle_31_50": 7,
+        "senior_51_plus": 4
+      },
+      "dataset_used": "customer_data.csv",
+      "methodology": "Filter customers by age ranges and count",
+      "detailed_breakdown": {
+        "young_18_30": [
+          {"customer_id": "C1001", "age": 25},
+          {"customer_id": "C1005", "age": 28},
+          {"customer_id": "C1007", "age": 23},
+          {"customer_id": "C1012", "age": 27},
+          {"customer_id": "C1014", "age": 22}
+        ],
+        "middle_31_50": [
+          {"customer_id": "C1002", "age": 34},
+          {"customer_id": "C1003", "age": 45},
+          {"customer_id": "C1008", "age": 38},
+          {"customer_id": "C1009", "age": 49},
+          {"customer_id": "C1011", "age": 31},
+          {"customer_id": "C1015", "age": 47},
+          {"customer_id": "C1042", "age": 42}
+        ],
+        "senior_51_plus": [
+          {"customer_id": "C1004", "age": 52},
+          {"customer_id": "C1006", "age": 61},
+          {"customer_id": "C1010", "age": 55},
+          {"customer_id": "C1013", "age": 58}
+        ]
+      },
+      "age_boundaries": {
+        "young": "age ≤ 30 (inclusive)",
+        "middle": "31 ≤ age ≤ 50 (inclusive)",
+        "senior": "age ≥ 51"
+      },
+      "key_points": [
+        "Young: age ≤ 30 (inclusive)",
+        "Middle: 31 ≤ age ≤ 50 (inclusive)",
+        "Senior: age ≥ 51",
+        "Must count all 16 customers in dataset"
+      ]
+    },
+    {
+      "question_number": 6,
+      "title": "Customer Lifetime Value for C1042",
+      "correct_answers": {
+        "clv_total": "$4,500.00",
+        "clv_annual": "$1,008.00",
+        "note": "Accept either interpretation"
+      },
+      "dataset_used": "customer_data.csv",
+      "methodology": "CLV = Average Order Value × Purchase Frequency × Tenure",
+      "detailed_calculation": {
+        "customer_data": {
+          "customer_id": "C1042",
+          "age": 42,
+          "join_date": "2020-06-15",
+          "total_orders": 20,
+          "total_spent": 4500.00,
+          "last_purchase_date": "2024-12-05"
+        },
+        "step_1_aov": {
+          "formula": "total_spent / total_orders",
+          "calculation": "4500 / 20",
+          "result": 225.00
+        },
+        "step_2_tenure": {
+          "from": "2020-06-15",
+          "to": "2024-11-29",
+          "years": 4.46,
+          "note": "4 years, 5.5 months"
+        },
+        "step_3_frequency": {
+          "formula": "total_orders / tenure_years",
+          "calculation": "20 / 4.46",
+          "result": 4.48,
+          "unit": "orders/year"
+        },
+        "step_4_clv": {
+          "formula": "AOV × Frequency × Tenure",
+          "calculation": "225 × 4.48 × 4.46",
+          "result": 4497.60,
+          "rounded": 4500.00
+        },
+        "alternative_annual_clv": {
+          "formula": "AOV × Frequency",
+          "calculation": "225 × 4.48",
+          "result": 1008.00
+        }
+      },
+      "key_points": [
+        "Must look up correct customer (C1042)",
+        "Calculate tenure from join_date to present",
+        "Show all intermediate calculations",
+        "Accept either total CLV or annual CLV"
+      ]
+    },
+    {
+      "question_number": 7,
+      "title": "Correlation between Customer Age and Total Spent",
+      "correct_answers": {
+        "correlation": 0.887,
+        "acceptable_range": "0.88 to 0.89",
+        "interpretation": "Strong positive correlation - older customers tend to spend significantly more"
+      },
+      "dataset_used": "customer_data.csv",
+      "methodology": "Calculate Pearson correlation coefficient between age and total_spent columns",
+      "data_pairs": [
+        {"age": 25, "total_spent": 1248.50},
+        {"age": 34, "total_spent": 2350.00},
+        {"age": 45, "total_spent": 5420.75},
+        {"age": 52, "total_spent": 3890.25},
+        {"age": 28, "total_spent": 450.00},
+        {"age": 61, "total_spent": 8250.50},
+        {"age": 23, "total_spent": 180.25},
+        {"age": 38, "total_spent": 3125.00},
+        {"age": 49, "total_spent": 4680.00},
+        {"age": 55, "total_spent": 6340.75},
+        {"age": 42, "total_spent": 4500.00},
+        {"age": 31, "total_spent": 1850.00},
+        {"age": 27, "total_spent": 920.50},
+        {"age": 58, "total_spent": 9120.00},
+        {"age": 22, "total_spent": 340.00},
+        {"age": 47, "total_spent": 4250.25}
+      ],
+      "interpretation_guide": {
+        "value": 0.887,
+        "strength": "Strong positive",
+        "meaning": "As customer age increases, total spending tends to increase significantly",
+        "business_insight": "Older customers are higher-value customers"
+      },
+      "key_points": [
+        "Use Pearson correlation coefficient",
+        "Include all 16 customers",
+        "Values close to +1 indicate strong positive correlation",
+        "Practical meaning: Older customers spend more"
+      ]
+    },
+    {
+      "question_number": 8,
+      "title": "A/B Test Conversion Rates",
+      "correct_answers": {
+        "control_rate": "30.0%",
+        "treatment_rate": "75.0%",
+        "winner": "Treatment (Group B)",
+        "absolute_difference": "45 percentage points",
+        "relative_lift": "150%"
+      },
+      "dataset_used": "ab_test_results.csv",
+      "methodology": "Filter by group, calculate conversion rate = (converted=1) / total users",
+      "detailed_calculation": {
+        "control_group_a": {
+          "total_users": 20,
+          "conversions": 6,
+          "conversion_rate": "6 / 20 = 0.30 = 30.0%"
+        },
+        "treatment_group_b": {
+          "total_users": 20,
+          "conversions": 15,
+          "conversion_rate": "15 / 20 = 0.75 = 75.0%"
+        },
+        "comparison": {
+          "absolute_difference": "75% - 30% = 45 percentage points",
+          "relative_lift": "(75 - 30) / 30 = 1.5 = 150% improvement",
+          "ratio": "Treatment is 2.5x better than Control"
+        }
+      },
+      "key_points": [
+        "Filter by group correctly (A vs B)",
+        "Conversion rate = count(converted=1) / total users",
+        "Treatment clearly outperformed Control",
+        "Express as percentages"
+      ]
+    },
+    {
+      "question_number": 9,
+      "title": "Sample Size Balance",
+      "correct_answers": {
+        "group_a": 20,
+        "group_b": 20,
+        "balanced": "Yes",
+        "difference": "0%"
+      },
+      "dataset_used": "ab_test_results.csv",
+      "methodology": "Count users per group, check if difference < 5% of total",
+      "detailed_calculation": {
+        "group_a_count": 20,
+        "group_b_count": 20,
+        "absolute_difference": 0,
+        "total_users": 40,
+        "percentage_difference": "0 / 40 = 0.0%",
+        "threshold": "5%",
+        "balanced": "Yes, 0.0% < 5%"
+      },
+      "interpretation": "Perfectly balanced sample sizes (50/50 split)",
+      "key_points": [
+        "Count users per group",
+        "Calculate absolute difference",
+        "Check if difference < 5% of total",
+        "This test has perfect balance"
+      ]
+    },
+    {
+      "question_number": 10,
+      "title": "Statistical Significance (Chi-Square Test)",
+      "correct_answers": {
+        "chi_square": 8.14,
+        "acceptable_range": "8.0 to 8.2",
+        "p_value": 0.0043,
+        "p_value_range": "< 0.01",
+        "significant": "Yes",
+        "conclusion": "Treatment had statistically significant positive effect"
+      },
+      "dataset_used": "ab_test_results.csv",
+      "methodology": "Construct 2×2 contingency table, calculate chi-square statistic, interpret p-value",
+      "detailed_calculation": {
+        "contingency_table": {
+          "control_converted": 6,
+          "control_not_converted": 14,
+          "control_total": 20,
+          "treatment_converted": 15,
+          "treatment_not_converted": 5,
+          "treatment_total": 20,
+          "total_converted": 21,
+          "total_not_converted": 19,
+          "grand_total": 40
+        },
+        "expected_frequencies": {
+          "control_converted": "(20 × 21) / 40 = 10.5",
+          "control_not_converted": "(20 × 19) / 40 = 9.5",
+          "treatment_converted": "(20 × 21) / 40 = 10.5",
+          "treatment_not_converted": "(20 × 19) / 40 = 9.5"
+        },
+        "chi_square_calculation": {
+          "formula": "Σ [(O - E)² / E]",
+          "term_1": "(6-10.5)² / 10.5 = 1.929",
+          "term_2": "(14-9.5)² / 9.5 = 2.132",
+          "term_3": "(15-10.5)² / 10.5 = 1.929",
+          "term_4": "(5-9.5)² / 9.5 = 2.132",
+          "chi_square": "1.929 + 2.132 + 1.929 + 2.132 = 8.122 ≈ 8.14"
+        },
+        "degrees_of_freedom": "(2-1) × (2-1) = 1",
+        "p_value": 0.0043,
+        "significance_level": 0.05
+      },
+      "interpretation": {
+        "p_value_comparison": "0.0043 < 0.05",
+        "decision": "REJECT null hypothesis",
+        "conclusion": "There IS a statistically significant difference between Control and Treatment",
+        "practical_meaning": "The treatment variant significantly improved conversion rates"
+      },
+      "key_points": [
+        "Construct 2×2 contingency table",
+        "Calculate chi-square statistic",
+        "Compare p-value to 0.05 threshold",
+        "Low p-value = significant effect"
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,387 @@
+{
+  "grading_guidelines": {
+    "general_principles": {
+      "scoring_approach": "Award partial credit for correct methodology even if final answer is wrong",
+      "point_distribution": {
+        "correct_final_answer": 6,
+        "showing_work_calculations": 2,
+        "proper_interpretation_explanation": 2,
+        "total_per_question": 10
+      },
+      "special_cases": [
+        {
+          "case": "Correct methodology but arithmetic error",
+          "action": "Deduct 1-2 points only"
+        },
+        {
+          "case": "Correct answer without showing work",
+          "action": "Award 6 points (not full 10)"
+        },
+        {
+          "case": "Completely wrong with no valid approach",
+          "action": "Award 0-2 points for effort"
+        },
+        {
+          "case": "Rounding differences (±0.01)",
+          "action": "Accept as correct"
+        }
+      ]
+    },
+    "data_verification_requirement": "Grader MUST reference actual data files to verify student calculations. Do not accept answers that don't match the actual data.",
+    "feedback_requirements": [
+      "Reference specific rows/values from datasets",
+      "Show the correct calculation using actual data",
+      "Explain WHERE the student's logic or calculation went wrong"
+    ]
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "title": "Total Revenue from Electronics in Q4 2024",
+      "points": 10,
+      "correct_answer": "$7,398.53",
+      "full_credit_criteria": [
+        "Correct total: $7,398.53",
+        "Shows filtering for Electronics category AND Q4 dates (Oct-Dec 2024)",
+        "Shows summation method (even if using tool/code)"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct methodology but arithmetic error",
+          "points": 8
+        },
+        {
+          "error": "Includes wrong months (e.g., includes September)",
+          "points": 5
+        },
+        {
+          "error": "Wrong category but correct calculation approach",
+          "points": 4
+        },
+        {
+          "error": "Only correct for one month",
+          "points": 3
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they filter by category = 'Electronics'?",
+        "Did they include October, November, AND December?",
+        "Did they account for quantity × unit_price?",
+        "Did they exclude or incorrectly handle returned items?"
+      ]
+    },
+    {
+      "question_number": 2,
+      "title": "Average Order Value for SAVE20 discount code",
+      "points": 10,
+      "correct_answers": {
+        "aov": "$213.74",
+        "percentage": "33.33% (or 10 out of 30 orders)"
+      },
+      "full_credit_criteria": [
+        "Correct AOV: $213.74",
+        "Correct percentage: 33.33%",
+        "Shows both calculations clearly"
+      ],
+      "partial_credit": [
+        {
+          "error": "Only calculates AOV correctly",
+          "points": 6
+        },
+        {
+          "error": "Only calculates percentage correctly",
+          "points": 6
+        },
+        {
+          "error": "Correct methodology but wrong numbers",
+          "points": 7
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they filter for discount_code = 'SAVE20'?",
+        "Did they calculate TOTAL order value (quantity × unit_price)?",
+        "For percentage: Did they divide by total number of orders (30)?"
+      ]
+    },
+    {
+      "question_number": 3,
+      "title": "Product with Highest Return Rate",
+      "points": 10,
+      "correct_answers": {
+        "product_id": "P123",
+        "return_rate": "37.5%"
+      },
+      "full_credit_criteria": [
+        "Correct product_id: P123",
+        "Correct return rate: 37.5%",
+        "Shows calculation: (3 returned / 8 total sold) × 100"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct product but wrong calculation",
+          "points": 7
+        },
+        {
+          "error": "Correct rate but wrong product",
+          "points": 5
+        },
+        {
+          "error": "Correct methodology but arithmetic error",
+          "points": 8
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they count ITEMS (quantity) not just orders?",
+        "Did they check ALL products for returns?",
+        "Did they use the correct formula?"
+      ]
+    },
+    {
+      "question_number": 4,
+      "title": "Revenue Trend Analysis",
+      "points": 10,
+      "correct_answers": {
+        "october_revenue": "$2,591.35",
+        "november_revenue": "$2,558.35",
+        "december_revenue": "$2,248.83",
+        "trend": "Decreasing",
+        "oct_to_nov_change": "-1.27%",
+        "nov_to_dec_change": "-12.10%"
+      },
+      "full_credit_criteria": [
+        "All three monthly revenues correct",
+        "Correct trend identified",
+        "Percentage changes calculated correctly"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct revenues but no percentage",
+          "points": 7
+        },
+        {
+          "error": "Correct revenues for 2 months only",
+          "points": 6
+        },
+        {
+          "error": "Correct trend without exact numbers",
+          "points": 5
+        },
+        {
+          "error": "Percentage calculation error",
+          "points": 8
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they filter by month correctly?",
+        "Did they calculate % change correctly: ((new-old)/old) × 100?",
+        "Did they multiply quantity × unit_price?"
+      ]
+    },
+    {
+      "question_number": 5,
+      "title": "Customer Age Segmentation",
+      "points": 10,
+      "correct_answers": {
+        "young_18_30": 5,
+        "middle_31_50": 7,
+        "senior_51_plus": 4
+      },
+      "full_credit_criteria": [
+        "Young (18-30): 5 customers",
+        "Middle (31-50): 7 customers",
+        "Senior (51+): 4 customers",
+        "Shows exact counts"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct counts for 2 groups",
+          "points": 7
+        },
+        {
+          "error": "Correct for 1 group",
+          "points": 4
+        },
+        {
+          "error": "Correct methodology but boundary error",
+          "points": 8
+        }
+      ],
+      "common_errors_to_check": [
+        "Boundary confusion: Is 30 'Young' or 'Middle'? (Should be Young)",
+        "Is 50 'Middle' or 'Senior'? (Should be Middle)",
+        "Did they count all 16 customers?"
+      ]
+    },
+    {
+      "question_number": 6,
+      "title": "Customer Lifetime Value for C1042",
+      "points": 10,
+      "correct_answers": {
+        "clv": "$4,500.00",
+        "alternative_annual_clv": "$1,008.00"
+      },
+      "full_credit_criteria": [
+        "CLV around $4,500 or $1,008 (depending on interpretation)",
+        "Shows all intermediate calculations",
+        "Shows formula application"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct intermediate values but wrong final",
+          "points": 7
+        },
+        {
+          "error": "Missing one component calculation",
+          "points": 6
+        },
+        {
+          "error": "Correct formula but wrong data lookup",
+          "points": 5
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they find the correct customer (C1042)?",
+        "Did they calculate tenure correctly (join_date to present)?",
+        "Purchase frequency = total_orders / tenure_years"
+      ]
+    },
+    {
+      "question_number": 7,
+      "title": "Correlation between Age and Total Spent",
+      "points": 10,
+      "correct_answers": {
+        "correlation": "0.887",
+        "acceptable_range": "0.88 to 0.89",
+        "interpretation": "Strong positive correlation - older customers tend to spend more"
+      },
+      "full_credit_criteria": [
+        "Correct correlation: 0.887 (accept 0.88 to 0.89)",
+        "Interpretation: Strong positive correlation",
+        "Explains meaning correctly"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct value but no interpretation",
+          "points": 7
+        },
+        {
+          "error": "Incorrect value but correct methodology",
+          "points": 6
+        },
+        {
+          "error": "Correct interpretation of wrong value",
+          "points": 5
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they use correct correlation formula or function?",
+        "Is interpretation consistent with the value?",
+        "Did they include all customers?"
+      ]
+    },
+    {
+      "question_number": 8,
+      "title": "A/B Test Conversion Rates",
+      "points": 10,
+      "correct_answers": {
+        "control_rate": "30.0%",
+        "treatment_rate": "75.0%",
+        "comparison": "Treatment performed better by 45 percentage points (or 150% lift)"
+      },
+      "full_credit_criteria": [
+        "Control (A) conversion rate: 30%",
+        "Treatment (B) conversion rate: 75%",
+        "Treatment performed better by 45 percentage points",
+        "Clear comparison statement"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct rates but no comparison",
+          "points": 7
+        },
+        {
+          "error": "One rate correct",
+          "points": 5
+        },
+        {
+          "error": "Correct methodology but arithmetic error",
+          "points": 8
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they filter by group correctly?",
+        "Conversion rate = (converted=1) / total users in group",
+        "Did they express as percentage?"
+      ]
+    },
+    {
+      "question_number": 9,
+      "title": "Sample Balance Analysis",
+      "points": 10,
+      "correct_answers": {
+        "group_a_count": 20,
+        "group_b_count": 20,
+        "balanced": "Yes (0% difference)"
+      },
+      "full_credit_criteria": [
+        "Group A: 20 users",
+        "Group B: 20 users",
+        "Balanced: Yes (0% difference)",
+        "Shows calculation of difference"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct counts but no balance assessment",
+          "points": 7
+        },
+        {
+          "error": "Incorrect counts but correct balance logic",
+          "points": 5
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they count unique users per group?",
+        "Did they calculate percentage difference correctly?",
+        "5% threshold: |difference| / total < 0.05"
+      ]
+    },
+    {
+      "question_number": 10,
+      "title": "Statistical Significance (Chi-Square Test)",
+      "points": 10,
+      "correct_answers": {
+        "chi_square_statistic": "8.14",
+        "acceptable_range": "8.0 to 8.2",
+        "p_value": "0.0043",
+        "p_value_threshold": "< 0.01",
+        "conclusion": "Yes, p < 0.05, treatment had significant effect"
+      },
+      "full_credit_criteria": [
+        "Correct chi-square statistic: 8.14 (accept 8.0-8.2)",
+        "Correct p-value: 0.0043 (accept < 0.01)",
+        "Correct conclusion: Yes, statistically significant",
+        "Shows contingency table or calculation"
+      ],
+      "partial_credit": [
+        {
+          "error": "Correct statistic but wrong interpretation",
+          "points": 7
+        },
+        {
+          "error": "Correct conclusion but wrong math",
+          "points": 6
+        },
+        {
+          "error": "Correct setup but incomplete",
+          "points": 5
+        }
+      ],
+      "common_errors_to_check": [
+        "Did they construct 2×2 contingency table correctly?",
+        "Did they interpret p-value threshold correctly?",
+        "Conclusion should match p-value"
+      ]
+    }
+  ]
+}
+

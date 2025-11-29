@@ -1,0 +1,94 @@
+{
+  "exam_info": {
+    "title": "DATA SCIENCE FUNDAMENTALS - MIDTERM EXAM",
+    "semester": "Fall 2024",
+    "date": "November 29, 2025",
+    "total_points": 100,
+    "instructions": [
+      "Answer all questions using the datasets provided in the course materials",
+      "Show your work and calculations",
+      "You may use Python, Excel, or manual calculations",
+      "Submit your answers and any code/calculations used"
+    ]
+  },
+  "sections": [
+    {
+      "section": "A",
+      "title": "E-COMMERCE ANALYSIS",
+      "points": 40,
+      "dataset": "ecommerce_sales.csv",
+      "dataset_description": "Dataset provided in Week 5",
+      "questions": [
+        {
+          "question_number": 1,
+          "points": 10,
+          "question": "What is the total revenue generated from the \"Electronics\" category in Q4 2024? Show your calculation."
+        },
+        {
+          "question_number": 2,
+          "points": 10,
+          "question": "Calculate the average order value (AOV) for customers who used the discount code \"SAVE20\". What percentage of total orders used this discount code?"
+        },
+        {
+          "question_number": 3,
+          "points": 10,
+          "question": "Which product_id had the highest return rate? Calculate the return rate as: (number of returned items / number of items sold) × 100. Provide the product_id and the exact return rate percentage."
+        },
+        {
+          "question_number": 4,
+          "points": 10,
+          "question": "What was the revenue trend? Compare total revenue in October vs November vs December. Did revenue increase or decrease month-over-month? By what percentage?"
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "title": "CUSTOMER SEGMENTATION",
+      "points": 30,
+      "dataset": "customer_data.csv",
+      "dataset_description": "Dataset provided in Week 7",
+      "questions": [
+        {
+          "question_number": 5,
+          "points": 10,
+          "question": "How many customers fall into each age group? Young (18-30), Middle (31-50), Senior (51+). Provide exact counts for each segment."
+        },
+        {
+          "question_number": 6,
+          "points": 10,
+          "question": "Calculate the Customer Lifetime Value (CLV) for customer_id \"C1042\". Use the formula: CLV = (average_order_value) × (purchase_frequency) × (customer_tenure_years). Show all intermediate calculations."
+        },
+        {
+          "question_number": 7,
+          "points": 10,
+          "question": "What is the correlation coefficient between customer_age and total_spent? Round to 3 decimal places. What does this correlation suggest?"
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "title": "A/B TEST ANALYSIS",
+      "points": 30,
+      "dataset": "ab_test_results.csv",
+      "dataset_description": "Dataset provided in Week 9",
+      "questions": [
+        {
+          "question_number": 8,
+          "points": 10,
+          "question": "Calculate the conversion rate for Control Group (Group A) and Treatment Group (Group B). Which group performed better and by how much?"
+        },
+        {
+          "question_number": 9,
+          "points": 10,
+          "question": "How many users were exposed to each variant? Was the sample size balanced between groups? (Balanced = difference less than 5% of total users)"
+        },
+        {
+          "question_number": 10,
+          "points": 10,
+          "question": "Calculate the statistical significance using a chi-square test. Is the p-value less than 0.05? Can we conclude the treatment had a significant effect? (You may use provided chi-square tables or calculators)"
+        }
+      ]
+    }
+  ]
+}
+
