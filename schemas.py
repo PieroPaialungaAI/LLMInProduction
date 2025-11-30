@@ -59,6 +59,22 @@ class GradingResult(BaseModel):
         description="Specific data points referenced (e.g., 'ecommerce_sales.csv rows 5-10')"
     )
     
+    @validator('student_answer', pre=True)
+    def parse_student_answer(cls, v):
+        """Handle case where LLM returns dict instead of string"""
+        if isinstance(v, dict):
+            # Extract value from dict if present
+            return v.get('value', str(v))
+        return v
+    
+    @validator('correct_answer', pre=True)
+    def parse_correct_answer(cls, v):
+        """Handle case where LLM returns dict instead of string"""
+        if isinstance(v, dict):
+            # Extract value from dict if present
+            return v.get('value', str(v))
+        return v
+    
     @validator('points_earned')
     def validate_points(cls, v, values):
         """Ensure points don't exceed maximum"""

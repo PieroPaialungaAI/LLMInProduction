@@ -1,15 +1,3 @@
-"""
-Guardrails and Validation for LLM Grading System
-=================================================
-
-Guardrails ensure reliability and safety by:
-1. Validating inputs before processing
-2. Validating LLM outputs before use
-3. Enforcing business rules
-4. Handling errors gracefully
-5. Preventing system abuse
-"""
-
 import json
 from typing import Dict, List, Tuple, Optional, Any
 from pydantic import ValidationError
